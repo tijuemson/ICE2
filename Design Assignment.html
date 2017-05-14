@@ -25,21 +25,22 @@
 <body>
 
       
-  <div class="container">
+  <div class="container" bgcolor="#ccccff">
+  
   <div class="row">
     <div class="col-sm-9">
     <h1 class="page-header" name="LeagueCaption">League Table</h1>
   <table class="table table-hover">
+   
     <thead>
       <tr>
         <th>Team Name</th>
         <th>Game Played</th>
         <th>Ranking</th>
-        <th>Points</th>
-        <th>Goals</th>
-      </tr>
+        
+        </tr>
     </thead>
-    <tbody name="LeagueTable">
+    <tbody name="LeagueTable"bgcolor="#ccccff" >
       <!--
 	  <tr>
         <td>John</td>
@@ -178,7 +179,7 @@ var app = {
 		loadFunctions:{
 			loadCompetitions:function(){
 				$.ajax({
-					headers: { 'X-Auth-Token': 'ccf7c783ee20446aa1e56dc6d01b542c' },
+					headers: { 'X-Auth-Token': '81cbb63a610a464589b089a01aae09a2' },
 					url: 'http://api.football-data.org/v1/competitions/',
 					dataType: 'json',
 					type: 'GET',
@@ -194,7 +195,7 @@ var app = {
 			},
 			loadLeagueTable:function(){
 				$.ajax({
-					headers: { 'X-Auth-Token': 'ccf7c783ee20446aa1e56dc6d01b542c' },
+					headers: { 'X-Auth-Token': '81cbb63a610a464589b089a01aae09a2' },
 					url: 'http://api.football-data.org/v1/competitions/426/leagueTable',
 					dataType: 'json',
 					type: 'GET',
@@ -206,13 +207,13 @@ var app = {
 						$(data).each(function(i,v){
 							//console.log(v);
 							//console.log(this.leagueCaption);
-							$('h1[name="LeagueCaption"]').text(this.leagueCaption);
+							//$('h1[name="LeagueCaption"]').text(this.leagueCaption);
 							var out ="";
 							$(this.standing).each(function(i,v){
 								//console.log(this);
-								var goals = this.goals;
+								//var goals = this.goals;
 								var playedGames = this.playedGames;
-								var points = this.points;
+								//var points = this.points;
 								var position = this.position;
 								var teamName = this.teamName;
 								
@@ -220,8 +221,8 @@ var app = {
 								out +='	<td name="teamName">'+teamName+'</td>'
 								out +='	<td name="playedGames">'+playedGames+'</td>'
 								out +='	<td name="position"> '+position+'</td>'
-								out +='	<td name="points">'+points+'</td>'
-								out +='	<td name="goals">'+goals+'</td>'
+								//out +='	<td name="points">'+points+'</td>'
+								//out +='	<td name="goals">'+goals+'</td>'
 								out +='</tr>'
 								
 							})
@@ -234,7 +235,7 @@ var app = {
 				
 				
 				$.ajax({
-					headers: { 'X-Auth-Token': 'ccf7c783ee20446aa1e56dc6d01b542c' },
+					headers: { 'X-Auth-Token': '81cbb63a610a464589b089a01aae09a2' },
 					url: 'http://api.football-data.org/v1/competitions/426/fixtures?timeFrame=n9',
 					dataType: 'json',
 					type: 'GET',
